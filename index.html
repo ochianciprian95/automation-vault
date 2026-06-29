@@ -114,6 +114,24 @@ h2{font-family:var(--disp);font-weight:600;font-size:clamp(2rem,5vw,3.4rem);line
 .incl{display:flex;gap:10px 26px;flex-wrap:wrap;justify-content:center;color:var(--mut);font-size:.95rem;margin:24px 0 34px}
 .incl span{display:flex;align-items:center;gap:8px}
 footer{text-align:center;padding:60px 28px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+.demo{margin-top:44px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.demo-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--line)}
+.scn{font-family:var(--body);font-size:13px;font-weight:500;color:var(--mut);border:1px solid var(--line);background:transparent;border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .25s}
+.scn:hover{color:var(--ink);border-color:var(--c1)}
+.scn.on{color:#04122b;background:linear-gradient(120deg,var(--c1),var(--c2));border-color:transparent}
+.sound{margin-left:auto;background:transparent;border:1px solid var(--line);color:var(--mut);border-radius:100px;padding:9px 15px;cursor:pointer;font-size:13px;font-family:var(--body)}
+.sound:hover{color:var(--ink);border-color:var(--c1)}
+.demo-body{display:grid;grid-template-columns:1fr 1fr;min-height:320px}
+@media(max-width:760px){.demo-body{grid-template-columns:1fr}}
+.pane{padding:24px 26px}
+.pane.prompt{border-right:1px solid var(--line);background:rgba(0,0,0,.22)}
+@media(max-width:760px){.pane.prompt{border-right:0;border-bottom:1px solid var(--line)}}
+.pane .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+.ptext{font-size:.98rem;color:#cdd6f4;line-height:1.65;white-space:pre-wrap;min-height:60px}
+.otext{font-family:ui-monospace,Menlo,monospace;font-size:.88rem;color:#9ae6b4;line-height:1.7;white-space:pre-wrap;min-height:180px}
+.cur{display:inline-block;width:8px;height:15px;background:var(--c1);vertical-align:-2px;margin-left:1px;animation:bk 1s steps(1) infinite}
+.otext .cur{background:#9ae6b4}
+@keyframes bk{50%{opacity:0}}
 </style>
 </head>
 <body>
@@ -178,8 +196,33 @@ footer{text-align:center;padding:60px 28px;color:var(--mut);font-size:13px;borde
   <p class="lead reveal">You know AI automation is the opportunity of the decade — but you freeze at "which task is worth it", "how do I scope it", "what do I charge". The Vault is the repeatable system that answers all of it, in the exact words that produce results.</p>
 </section>
 
+<section class="container" id="demo">
+  <div class="label reveal">002 / See it in action</div>
+  <h2 class="reveal">Paste a prompt. Get a sellable deliverable.</h2>
+  <p class="lead reveal">No fluff. This is exactly what the prompts produce — pick a step and watch it work.</p>
+  <div class="demo reveal">
+    <div class="demo-top">
+      <button class="scn on" data-i="0">Find an opportunity</button>
+      <button class="scn" data-i="1">Calculate the ROI</button>
+      <button class="scn" data-i="2">Write the proposal</button>
+      <button class="scn" data-i="3">Price it</button>
+      <button class="sound" id="sndBtn">Sound: off</button>
+    </div>
+    <div class="demo-body">
+      <div class="pane prompt">
+        <div class="tag">Your prompt</div>
+        <div class="ptext" id="pOut"></div>
+      </div>
+      <div class="pane">
+        <div class="tag" style="color:#9ae6b4">AI output</div>
+        <div class="otext" id="oOut"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="container" id="inside">
-  <div class="label reveal">002 / What's inside</div>
+  <div class="label reveal">003 / What's inside</div>
   <h2 class="reveal">Eight modules. One full lifecycle.</h2>
   <div class="bento">
     <div class="card reveal span2"><span class="n">01</span><div class="ic">🔍</div><h3>Find &amp; qualify</h3><p>Spot high-ROI tasks, score feasibility, qualify clients before you say yes.</p></div>
@@ -193,7 +236,7 @@ footer{text-align:center;padding:60px 28px;color:var(--mut);font-size:13px;borde
 </section>
 
 <section class="container">
-  <div class="label reveal">003 / How it works</div>
+  <div class="label reveal">004 / How it works</div>
   <h2 class="reveal">From idea to income in four moves.</h2>
   <div class="flow">
     <div class="step reveal"><div class="s">01</div><div class="t">Find</div><div class="d">Pick a task worth automating &amp; price it.</div></div>
@@ -260,6 +303,34 @@ window.addEventListener('load',()=>{
       c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')});
   });
 });
+</script>
+<script>
+(function(){
+const SCN=[
+ {p:"List the 3 most time-consuming manual tasks at a dental clinic and rank them by automation ROI.",
+  o:"1. Appointment reminders + no-show follow-ups\n   ~9 hrs/week  ·  HIGH ROI  *\n2. Insurance pre-auth data entry\n   ~6 hrs/week  ·  HIGH ROI\n3. Patient intake forms -> CRM\n   ~4 hrs/week  ·  MEDIUM\n\n-> Build first: appointment reminders\n   approx $1,800 one-time + $200/mo"},
+ {p:"The reminders automation saves 9 hrs/week at $35/hr. Give me the ROI and a fair price.",
+  o:"Hours saved / month:   36\nMoney saved / month:   $1,260\nMoney saved / year:    $15,120\n\nFair build price:  $1,800  (one-time)\nCare plan:         $200 / month\nPayback:           ~6 weeks, then pure savings"},
+ {p:"Write a 90-word proposal to the clinic for the reminders automation.",
+  o:"Hi Dr. Lewis,\n\nYour team spends ~9 hrs/week chasing reminders and\nno-shows - about $1,260 every month.\n\nI'll build an automation that texts + emails patients,\nconfirms them, and re-books no-shows automatically.\nLive in 7 days.\n\nInvestment: $1,800 once + $200/mo support.\nReturns in ~6 weeks, then it's pure savings.\n\nShall I start Monday?"},
+ {p:"Price the reminders automation in 3 value-based tiers.",
+  o:"GOOD  -  $1,200\n   Reminders + confirmations\n\nBETTER  -  $1,800     <- most clients pick this\n   + automatic no-show re-booking\n   + monthly performance report\n\nBEST  -  $2,600\n   + two-way SMS, waitlist auto-fill,\n     priority support"}
+];
+const pEl=document.getElementById('pOut'),oEl=document.getElementById('oOut'),
+      btns=[].slice.call(document.querySelectorAll('.scn')),sndBtn=document.getElementById('sndBtn');
+let sound=false,tok=0,ac=null;
+function actx(){ac=ac||new (window.AudioContext||window.webkitAudioContext)();return ac;}
+function beep(f,d){if(!sound)return;const a=actx(),o=a.createOscillator(),g=a.createGain();o.type='sine';o.frequency.value=f;g.gain.value=.0001;o.connect(g);g.connect(a.destination);const t=a.currentTime;o.start(t);g.gain.exponentialRampToValueAtTime(.05,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.stop(t+d+.02);}
+function tick(){beep(360+Math.random()*180,.04);}
+function chime(){[523,659,784,1046].forEach((f,i)=>setTimeout(()=>beep(f,.4),i*70));}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+sndBtn.addEventListener('click',()=>{sound=!sound;sndBtn.textContent='Sound: '+(sound?'on':'off');sndBtn.classList.toggle('on',sound);if(sound){actx();beep(720,.06);}});
+async function typeInto(el,txt,sp,my){el.textContent='';const s=document.createElement('span');el.appendChild(s);const c=document.createElement('span');c.className='cur';el.appendChild(c);for(let i=0;i<txt.length;i++){if(my!==tok)return false;s.textContent+=txt[i];if(i%3===0)tick();await sleep(sp);}c.remove();return true;}
+async function play(i){const my=++tok;btns.forEach((b,j)=>b.classList.toggle('on',j===i));pEl.textContent='';oEl.textContent='';if(!await typeInto(pEl,SCN[i].p,15,my))return;await sleep(380);if(my!==tok)return;if(await typeInto(oEl,SCN[i].o,9,my))chime();}
+btns.forEach(b=>b.addEventListener('click',()=>play(+b.dataset.i)));
+let done=false;
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!done){done=true;play(0);}}),{threshold:.35}).observe(document.querySelector('.demo'));
+})();
 </script>
 </body>
 </html>
