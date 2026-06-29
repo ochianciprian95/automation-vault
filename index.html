@@ -99,6 +99,39 @@ h2{font-family:var(--disp);font-weight:600;font-size:clamp(2rem,5vw,3.5rem);line
 .incl{display:flex;gap:10px 26px;flex-wrap:wrap;justify-content:center;color:var(--mut);font-size:.95rem;margin:24px 0 34px}.incl span{display:flex;align-items:center;gap:8px}
 footer{text-align:center;padding:60px 28px;color:var(--mut);font-size:13px;border-top:1px solid var(--line);background:rgba(5,6,12,.4)}
 footer a{color:var(--c1);text-decoration:none;border-bottom:1px solid rgba(56,189,248,.4)}
+.guide-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:118px 22px 60px}
+.guide-intro{text-align:center;margin-bottom:30px}
+.guide-intro h1{font-family:var(--disp);font-weight:800;font-size:clamp(1.9rem,5vw,3.4rem);line-height:1.02;letter-spacing:-.02em;margin-top:16px;max-width:18ch;margin-left:auto;margin-right:auto}
+.guide-grid{display:grid;grid-template-columns:minmax(0,415px) minmax(0,1fr);gap:20px;max-width:1080px;margin:0 auto;width:100%}
+@media(max-width:880px){.guide-grid{grid-template-columns:1fr}}
+.guide-panel{border:1px solid var(--line);border-radius:22px;background:rgba(9,11,22,.78);backdrop-filter:blur(12px);display:flex;flex-direction:column;overflow:hidden;min-height:430px}
+.guide-head{display:flex;align-items:center;gap:11px;padding:15px 18px;border-bottom:1px solid var(--line)}
+.guide-av{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--c1),var(--c3));display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:var(--glow)}
+.guide-head .nm{font-weight:600;font-size:14px}.guide-head .st{font-size:11px;color:#22c55e;display:flex;align-items:center;gap:5px}
+.guide-head .st::before{content:"";width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e}
+.guide-feed{flex:1;padding:18px;display:flex;flex-direction:column;gap:11px;overflow-y:auto;max-height:330px}
+.bubble{max-width:90%;padding:11px 14px;border-radius:15px;font-size:.92rem;line-height:1.5}
+.bubble.ag{align-self:flex-start;background:rgba(255,255,255,.06);border:1px solid var(--line);border-bottom-left-radius:4px;color:#dfe6ff}
+.bubble.me{align-self:flex-end;background:linear-gradient(120deg,var(--c1),var(--c2));color:#04122b;border-bottom-right-radius:4px;font-weight:500}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:13px 15px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:15px;border-bottom-left-radius:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--mut);animation:tp 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+.guide-choices{padding:13px 18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;min-height:56px}
+.chip{font-family:var(--body);font-size:.86rem;font-weight:500;color:var(--ink);border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:100px;padding:9px 15px;cursor:pointer;transition:all .2s;opacity:0;transform:translateY(8px)}
+.chip.show{opacity:1;transform:none}
+.chip:hover{border-color:var(--c1);background:rgba(56,189,248,.12)}
+.chip.cta{background:linear-gradient(120deg,var(--c1),var(--c3));color:#fff;border-color:transparent;box-shadow:var(--glow)}
+.guide-stage{border:1px solid var(--line);border-radius:22px;background:radial-gradient(420px circle at 60% 30%,rgba(99,102,241,.12),transparent 60%),rgba(9,11,22,.6);backdrop-filter:blur(8px);position:relative;overflow:hidden;min-height:430px;display:flex;align-items:center;justify-content:center}
+.stage-cap{position:absolute;bottom:16px;left:20px;right:20px;text-align:center;font-size:.86rem;color:#aeb6da;opacity:0}
+.gear{transform-box:fill-box;transform-origin:center}
+.abot{transform-box:fill-box;transform-origin:center}
+.spin .gear{animation:spin 4s linear infinite}
+.spin .gear.r{animation-duration:3s;animation-direction:reverse}
+.spin .abot{animation:bob 1.3s ease-in-out infinite alternate}
+.spin .abot.b2{animation-delay:.4s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bob{to{transform:translateY(-6px)}}
 </style>
 </head>
 <body>
@@ -110,16 +143,52 @@ footer a{color:var(--c1);text-decoration:none;border-bottom:1px solid rgba(56,18
 </nav>
 
 <div class="wrap">
-<header class="hero">
-  <span class="eyebrow">The complete system</span>
-  <h1 id="h1">Build &amp; sell <span class="grad">AI automations</span> on autopilot</h1>
-  <p class="sub">56 documented, copy-paste prompts that take you from "a business has a boring manual task" to a paid client — without being a developer.</p>
-  <div class="cta-row">
-    <a class="btn" href="https://ochianciprian95.gumroad.com/l/secves">Get instant access</a>
-    <a class="btn ghost" href="#inside">See what's inside</a>
+<header class="guide-hero">
+  <div class="guide-intro">
+    <span class="eyebrow">A 60-second guided demo</span>
+    <h1 id="h1">See what you'd do — <span class="grad">and the machine that runs behind it</span></h1>
   </div>
-  <p class="price-tag">One-time &middot; <b>CHF&nbsp;31.49</b> &middot; instant download</p>
-  <div class="scrollcue">scroll</div>
+  <div class="guide-grid">
+    <div class="guide-panel">
+      <div class="guide-head"><div class="guide-av">&#129302;</div><div><div class="nm">Vault Guide</div><div class="st">online</div></div></div>
+      <div class="guide-feed" id="feed"></div>
+      <div class="guide-choices" id="choices"></div>
+    </div>
+    <div class="guide-stage" id="stage">
+      <svg id="bb" viewBox="0 0 520 400" width="100%" height="100%" style="max-height:430px">
+        <defs><linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs>
+        <g id="task" opacity="0">
+          <rect x="14" y="158" width="118" height="84" rx="12" fill="#141730" stroke="#2a2f4a"/>
+          <text x="26" y="184" fill="#8b93b6" font-size="10" font-family="Sora" letter-spacing="1">CLIENT TASK</text>
+          <text x="26" y="208" fill="#dfe6ff" font-size="13" font-family="Sora">Chase 40</text>
+          <text x="26" y="226" fill="#dfe6ff" font-size="13" font-family="Sora">no-shows</text>
+        </g>
+        <g id="prompt" opacity="0">
+          <rect x="150" y="185" width="86" height="30" rx="15" fill="url(#pg)"/>
+          <text x="193" y="205" fill="#04122b" font-size="12" font-family="Sora" text-anchor="middle" font-weight="600">your prompt</text>
+        </g>
+        <g id="box">
+          <g id="inner" opacity="0">
+            <circle class="gear" cx="232" cy="168" r="20" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="7 7"/>
+            <circle class="gear r" cx="284" cy="205" r="16" fill="none" stroke="#a855f7" stroke-width="3" stroke-dasharray="5 5"/>
+            <circle class="gear" cx="246" cy="232" r="12" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="4 4"/>
+            <g class="abot"><circle cx="300" cy="160" r="11" fill="#38bdf8"/><circle cx="296" cy="158" r="2" fill="#04122b"/><circle cx="304" cy="158" r="2" fill="#04122b"/></g>
+            <g class="abot b2"><circle cx="206" cy="242" r="11" fill="#a855f7"/><circle cx="202" cy="240" r="2" fill="#fff"/><circle cx="210" cy="240" r="2" fill="#fff"/></g>
+          </g>
+          <rect id="cover" x="194" y="140" width="130" height="122" rx="16" fill="#0b0d1c" stroke="#2a2f4a" stroke-width="1.5"/>
+          <text id="qm" x="259" y="212" fill="#3a4170" font-size="46" font-family="Unbounded" text-anchor="middle">?</text>
+        </g>
+        <g id="result" opacity="0">
+          <rect x="372" y="158" width="134" height="84" rx="12" fill="rgba(34,197,94,.12)" stroke="#22c55e"/>
+          <text x="386" y="184" fill="#22c55e" font-size="10" font-family="Sora" letter-spacing="1">RESULT</text>
+          <text x="386" y="208" fill="#a7f3c0" font-size="13" font-family="Sora">40 re-booked</text>
+          <text x="386" y="226" fill="#a7f3c0" font-size="13" font-family="Sora">$1,800 deal</text>
+        </g>
+        <text id="big" x="260" y="86" fill="#9ae6b4" font-size="30" font-family="Unbounded" font-weight="800" text-anchor="middle" opacity="0">+ $1,500</text>
+      </svg>
+      <div class="stage-cap" id="cap"></div>
+    </div>
+  </div>
 </header>
 
 <div class="marquee"><div class="track" id="mq">
@@ -292,6 +361,61 @@ async function play(i){const my=++tok;btns.forEach((b,j)=>b.classList.toggle('on
 btns.forEach(b=>b.addEventListener('click',()=>play(+b.dataset.i)));
 let done=false;
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!done){done=true;play(0);}}),{threshold:.35}).observe(document.querySelector('.demo'));
+})();
+</script>
+<script>
+(function(){
+const feed=document.getElementById('feed'),choicesEl=document.getElementById('choices'),cap=document.getElementById('cap');
+if(!feed||!window.gsap) return;
+function setCap(t){cap.textContent=t;gsap.fromTo(cap,{opacity:0,y:8},{opacity:1,y:0,duration:.5});}
+function resetScene(){gsap.killTweensOf('#prompt,#task,#result,#cover,#qm,#inner,#big');
+  document.getElementById('inner').classList.remove('spin');
+  gsap.set('#task',{opacity:0,x:0});gsap.set('#prompt',{opacity:0,x:0,y:0,scale:1});
+  gsap.set('#result',{opacity:0,x:0});gsap.set('#cover',{opacity:1,y:0});gsap.set('#qm',{opacity:1});
+  gsap.set('#inner',{opacity:0});gsap.set('#big',{opacity:0,y:0,scale:1});gsap.set(cap,{opacity:0});}
+const SCENE={
+ blackbox(){resetScene();gsap.timeline()
+   .to('#task',{opacity:1,duration:.5,ease:'power2.out'},0)
+   .fromTo('#prompt',{opacity:0,x:-30},{opacity:1,x:0,duration:.4},'.3')
+   .to('#prompt',{x:70,duration:.6,ease:'power2.inOut'},'.85')
+   .to('#prompt',{x:92,scale:.2,opacity:0,duration:.4,ease:'power2.in'},'>')
+   .to('#cover',{scale:1.06,transformOrigin:'50% 50%',duration:.12,yoyo:true,repeat:1},'>-.1')
+   .add(()=>setCap('One prompt goes into the box…'));},
+ open(){gsap.timeline()
+   .to('#qm',{opacity:0,duration:.25})
+   .to('#cover',{opacity:0,y:-16,duration:.5,ease:'power2.out'},'<')
+   .to('#inner',{opacity:1,duration:.5},'<')
+   .add(()=>{document.getElementById('inner').classList.add('spin');setCap('Behind the scenes: your AI crew doing the work the client never sees.');});},
+ result(){gsap.timeline()
+   .fromTo('#result',{opacity:0,x:-30},{opacity:1,x:0,duration:.5,ease:'back.out(1.6)'})
+   .add(()=>setCap('Your client sees only this. You? You pasted one prompt.'));},
+ money(){gsap.fromTo('#big',{opacity:0,y:10,scale:.7},{opacity:1,y:-6,scale:1,duration:.7,ease:'back.out(2)'});setCap('That’s 1 of 56 plays. First client ≈ $1,500.');}
+};
+const NODES={
+ start:{msgs:["Hey — I'm your Vault Guide 🤖","In ~60s I'll show you what you'd actually DO with this — and the hidden machine that does the work.","First: why are you here?"],
+   choices:[{t:"💰 Make money with AI",go:"go1"},{t:"⚙️ Automate my own work",go:"go1b"},{t:"🤔 Just show me",go:"go1"}]},
+ go1:{msgs:["Perfect. Watch this 👇","A dental clinic wastes 9 hrs/week chasing 40 no-shows. You grab ONE prompt from the Vault and send it in…"],scene:"blackbox",choices:[{t:"What just happened?",go:"go2"}]},
+ go1b:{msgs:["Nice — same machine, pointed at YOUR busywork.","Watch one prompt go to work 👇"],scene:"blackbox",choices:[{t:"What just happened?",go:"go2"}]},
+ go2:{msgs:["That black box? Here's the part nobody ever sees 🔍"],scene:"open",choices:[{t:"…and the result?",go:"go3"}]},
+ go3:{msgs:["The client only gets the result. They never see the agents, the steps, the work.","To you, it was: paste one prompt."],scene:"result",choices:[{t:"How do I actually get paid?",go:"go4"}]},
+ go4:{msgs:["The Vault hands you the proposal, the price, and the exact words to close.","First client ≈ $1,500 — and that's just 1 of 56 plays inside."],scene:"money",choices:[{t:"I want this →",go:"buy",cta:true},{t:"What's inside?",go:"go5"}]},
+ go5:{msgs:["8 modules: find → design → build → QA → sell → deliver → scale → run the business. 56 prompts, each producing a real deliverable.","And after you buy, I walk you through setup step-by-step (the mini-course). You're never left alone."],choices:[{t:"Get the Vault →",go:"buy",cta:true},{t:"See the full page ↓",go:"scrolldown"}]},
+ buy:{msgs:["Let's go 🚀 instant download, yours forever."],action:"buy"},
+ scrolldown:{msgs:["Scroll down — the prompt demo, the 8 modules and the price are right there 👇"],action:"scroll"}
+};
+function addTyping(){const t=document.createElement('div');t.className='typing';t.innerHTML='<i></i><i></i><i></i>';feed.appendChild(t);feed.scrollTop=feed.scrollHeight;return t;}
+function addBubble(txt,cls){const b=document.createElement('div');b.className='bubble '+cls;b.textContent=txt;feed.appendChild(b);gsap.from(b,{opacity:0,y:10,duration:.35});feed.scrollTop=feed.scrollHeight;return b;}
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function runNode(key){const n=NODES[key];choicesEl.innerHTML='';
+  for(const m of n.msgs){const t=addTyping();await wait(Math.min(1100,460+m.length*13));t.remove();addBubble(m,'ag');await wait(200);}
+  if(n.scene&&SCENE[n.scene])SCENE[n.scene]();
+  if(n.action==='buy'){await wait(650);location.href='https://ochianciprian95.gumroad.com/l/secves';return;}
+  if(n.action==='scroll'){await wait(400);document.getElementById('demo').scrollIntoView({behavior:'smooth'});return;}
+  (n.choices||[]).forEach((c,i)=>{const b=document.createElement('button');b.className='chip'+(c.cta?' cta':'');b.textContent=c.t;
+    b.onclick=()=>{addBubble(c.t,'me');runNode(c.go);};choicesEl.appendChild(b);setTimeout(()=>b.classList.add('show'),140+i*90);});
+}
+let started=false;
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!started){started=true;runNode('start');}}),{threshold:.25}).observe(document.querySelector('.guide-panel'));
 })();
 </script>
 </body>
