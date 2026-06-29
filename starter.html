@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Free: The AI Automation Starter Pack — 10 prompts</title>
+<meta name="description" content="10 battle-tested, copy-paste prompts to design, build and sell your first AI automation. Free.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%2322c55e'/%3E%3Cpath d='M17 6 9 18h6l-1 8 8-12h-6z' fill='%23fff'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free: The AI Automation Starter Pack">
+<meta property="og:description" content="10 battle-tested prompts to build &amp; sell your first AI automation — free.">
+<meta property="og:image" content="https://ochianciprian95.github.io/automation-vault/cover-starter.png">
+<meta property="og:url" content="https://ochianciprian95.github.io/automation-vault/starter.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06070d; --ink:#eef2ff; --mut:#8a93b8; --line:rgba(255,255,255,.08);
+  --g1:#22c55e; --g2:#38bdf8; --c3:#6366f1;
+  --glow:0 0 40px rgba(34,197,94,.4);
+  --disp:'Unbounded',sans-serif; --body:'Sora',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.grid-fade{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(circle at 50% 0%,rgba(34,197,94,.16),transparent 55%),
+  linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/100% 56px,
+  linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/56px 100%;
+  mask:linear-gradient(180deg,#000,transparent 70%)}
+.wrap{position:relative;z-index:2}
+.container{max-width:1020px;margin:0 auto;padding:0 28px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:18px 30px;backdrop-filter:blur(12px);background:rgba(6,7,13,.55);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--disp);font-weight:800;font-size:17px;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+.logo .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));box-shadow:var(--glow)}
+.nav-link{color:var(--mut);text-decoration:none;font-size:14px}
+.nav-link:hover{color:var(--ink)}
+.btn{font-family:var(--body);font-weight:600;font-size:15px;border:0;cursor:pointer;padding:14px 30px;border-radius:100px;
+  color:#04220f;text-decoration:none;display:inline-block;background:linear-gradient(120deg,var(--g1),var(--g2));
+  box-shadow:var(--glow);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 60px rgba(34,197,94,.6)}
+.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--ink);font-weight:500}
+.btn.ghost:hover{border-color:var(--g2)}
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:150px 28px 70px}
+.badge{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#04220f;font-weight:600;
+  padding:8px 18px;border-radius:100px;background:linear-gradient(120deg,var(--g1),var(--g2))}
+h1{font-family:var(--disp);font-weight:800;font-size:clamp(2.5rem,7.5vw,5.4rem);line-height:.98;letter-spacing:-.02em;margin:26px 0 0;max-width:16ch}
+.grad{background:linear-gradient(120deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);font-size:clamp(1rem,2vw,1.25rem);max-width:56ch;margin:26px auto 0}
+.cta-row{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap;justify-content:center}
+.note{font-size:13px;color:var(--mut);margin-top:16px}
+.reveal{opacity:0;transform:translateY(40px)}
+section{padding:90px 0}
+.label{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);font-weight:600;margin-bottom:16px}
+h2{font-family:var(--disp);font-weight:600;font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.04;letter-spacing:-.02em}
+.list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px}
+.item{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:18px 20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));transition:border-color .3s,transform .3s}
+.item:hover{border-color:rgba(34,197,94,.5);transform:translateY(-4px)}
+.item .nx{font-family:var(--disp);font-weight:800;color:var(--g1);font-size:1.1rem;min-width:28px}
+.item .tx b{font-weight:600;display:block;margin-bottom:2px}
+.item .tx span{color:var(--mut);font-size:.9rem}
+@media(max-width:680px){.list{grid-template-columns:1fr}}
+.final{text-align:center;border:1px solid var(--line);border-radius:28px;padding:64px 30px;
+  background:radial-gradient(600px circle at 50% 0%,rgba(34,197,94,.14),transparent 60%)}
+.upsell{margin-top:26px;color:var(--mut);font-size:.95rem}
+.upsell a{color:var(--g2);text-decoration:none;border-bottom:1px solid rgba(56,189,248,.4)}
+footer{text-align:center;padding:54px 28px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="grid-fade"></div>
+
+<nav>
+  <div class="logo"><span class="dot"></span> AUTOMATION&nbsp;VAULT</div>
+  <a class="nav-link" href="index.html">The full Vault &rarr;</a>
+</nav>
+
+<div class="wrap">
+<header class="hero">
+  <span class="badge">Free pack &middot; 10 prompts</span>
+  <h1>Build your first <span class="grad">AI automation</span> — free</h1>
+  <p class="sub">10 battle-tested, copy-paste prompts that take you from "a business has a boring manual task" to a working automation and a paid proposal. No developer skills needed.</p>
+  <div class="cta-row">
+    <a class="btn" href="https://ochianciprian95.gumroad.com/l/gdcyi">Get it free</a>
+    <a class="btn ghost" href="#whats">What's inside</a>
+  </div>
+  <p class="note">Instant download &middot; no card required</p>
+</header>
+
+<section class="container" id="whats">
+  <div class="label reveal">What you get</div>
+  <h2 class="reveal">The full path, in 10 prompts.</h2>
+  <div class="list">
+    <div class="item reveal"><span class="nx">01</span><span class="tx"><b>Find a process worth automating</b><span>Spot the highest-ROI task in any business.</span></span></div>
+    <div class="item reveal"><span class="nx">02</span><span class="tx"><b>Qualify the opportunity</b><span>Calculate hours and money saved before you build.</span></span></div>
+    <div class="item reveal"><span class="nx">03</span><span class="tx"><b>Map the workflow</b><span>Turn a fuzzy task into a buildable flow.</span></span></div>
+    <div class="item reveal"><span class="nx">04</span><span class="tx"><b>Choose the right stack</b><span>The simplest tools that won't break.</span></span></div>
+    <div class="item reveal"><span class="nx">05</span><span class="tx"><b>Write the build spec</b><span>So building is boring and bug-free.</span></span></div>
+    <div class="item reveal"><span class="nx">06</span><span class="tx"><b>Build the AI brain</b><span>A production-grade, safe system prompt.</span></span></div>
+    <div class="item reveal"><span class="nx">07</span><span class="tx"><b>QA before you ship</b><span>Catch failures before the client does.</span></span></div>
+    <div class="item reveal"><span class="nx">08</span><span class="tx"><b>Write the client proposal</b><span>Turn the build into a yes.</span></span></div>
+    <div class="item reveal"><span class="nx">09</span><span class="tx"><b>Price it for value</b><span>Three tiers, anchored to value not hours.</span></span></div>
+    <div class="item reveal"><span class="nx">10</span><span class="tx"><b>Hand off + recurring income</b><span>Turn one project into a monthly retainer.</span></span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="final reveal">
+    <span class="badge">100% free</span>
+    <h2 style="margin-top:18px">Start building today.</h2>
+    <p class="sub" style="margin:16px auto 0">Grab the 10 prompts and run your first automation play this week.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn" href="https://ochianciprian95.gumroad.com/l/gdcyi" style="font-size:16px;padding:16px 40px">Get the free pack</a>
+    </div>
+    <p class="upsell">Ready for the whole system? Get <a href="index.html">The AI Automation Builder's Vault &rarr;</a> — 56 prompts across the full lifecycle.</p>
+  </div>
+</section>
+</div>
+
+<footer>Built by an operator who runs these systems daily. Real automations, not theory.<br>&copy; Automation Vault</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+const cv=document.getElementById('stars'),cx=cv.getContext('2d');let W,H,st=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;st=Array.from({length:130},()=>({x:Math.random()*W,y:Math.random()*H,z:Math.random()*1.4+.2,s:Math.random()*1.6+.3}))}
+rs();addEventListener('resize',rs);
+(function loop(){cx.clearRect(0,0,W,H);for(const p of st){p.y+=p.z*.16;if(p.y>H){p.y=0;p.x=Math.random()*W}cx.globalAlpha=.4+p.z*.4;cx.fillStyle=p.z>1.1?'#22c55e':'#9fb4ff';cx.beginPath();cx.arc(p.x,p.y,p.s,0,7);cx.fill()}requestAnimationFrame(loop)})();
+window.addEventListener('load',()=>{
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('.hero .badge',{y:24,opacity:0,duration:.7,ease:'power3.out'});
+  gsap.from('h1',{y:40,opacity:0,duration:.9,delay:.1,ease:'power3.out'});
+  gsap.from('.hero .sub',{y:30,opacity:0,duration:.8,delay:.3,ease:'power3.out'});
+  gsap.from('.hero .cta-row',{y:24,opacity:0,duration:.8,delay:.5,ease:'power3.out'});
+  gsap.from('.hero .note',{opacity:0,duration:.8,delay:.7});
+  gsap.utils.toArray('.reveal').forEach((el,i)=>{gsap.to(el,{opacity:1,y:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}})});
+});
+</script>
+</body>
+</html>
