@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>The AI Automation Builder's Vault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06070d; --bg2:#0a0c16; --ink:#eef2ff;
+  --mut:#8a93b8; --line:rgba(255,255,255,.08);
+  --c1:#38bdf8; --c2:#6366f1; --c3:#a855f7;
+  --glow:0 0 40px rgba(99,102,241,.45);
+  --disp:'Unbounded',sans-serif; --body:'Sora',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:300;
+  overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.grid-fade{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(circle at 50% 0%,rgba(99,102,241,.18),transparent 55%),
+  linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/100% 56px,
+  linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/56px 100%;
+  mask:linear-gradient(180deg,#000,transparent 70%)}
+.wrap{position:relative;z-index:2}
+.container{max-width:1180px;margin:0 auto;padding:0 28px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;
+  justify-content:space-between;padding:18px 30px;backdrop-filter:blur(12px);
+  background:rgba(6,7,13,.55);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--disp);font-weight:800;font-size:17px;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+.logo .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c3));box-shadow:var(--glow)}
+.btn{font-family:var(--body);font-weight:600;font-size:14px;border:0;cursor:pointer;
+  padding:13px 26px;border-radius:100px;color:#fff;text-decoration:none;display:inline-block;
+  background:linear-gradient(120deg,var(--c1),var(--c2) 60%,var(--c3));
+  box-shadow:var(--glow);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 60px rgba(168,85,247,.6)}
+.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--ink)}
+.btn.ghost:hover{border-color:var(--c1);box-shadow:0 0 30px rgba(56,189,248,.25)}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;padding:140px 28px 80px;position:relative}
+.eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--c1);
+  font-weight:600;border:1px solid var(--line);padding:9px 18px;border-radius:100px;
+  background:rgba(56,189,248,.06)}
+h1{font-family:var(--disp);font-weight:800;font-size:clamp(2.7rem,8vw,6.2rem);line-height:.96;
+  letter-spacing:-.02em;margin:30px 0 0;max-width:14ch}
+.grad{background:linear-gradient(120deg,var(--c1),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);font-size:clamp(1rem,2vw,1.3rem);max-width:60ch;margin:28px auto 0;font-weight:300}
+.cta-row{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;justify-content:center}
+.price-tag{font-size:13px;color:var(--mut);margin-top:18px}
+.price-tag b{color:var(--ink);font-weight:600}
+.constel{position:absolute;inset:0;z-index:-1;display:flex;align-items:center;justify-content:center;opacity:.5}
+.scrollcue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--mut);font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+
+.reveal{opacity:0;transform:translateY(40px)}
+section{padding:110px 0;position:relative}
+.label{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);font-weight:600;margin-bottom:18px}
+h2{font-family:var(--disp);font-weight:600;font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;letter-spacing:-.02em}
+.lead{color:var(--mut);font-size:1.15rem;max-width:54ch;margin-top:22px}
+
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;white-space:nowrap}
+.marquee .track{display:inline-flex;gap:50px;font-family:var(--disp);font-weight:800;
+  font-size:clamp(2.5rem,7vw,5rem);text-transform:uppercase;color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.22)}
+.marquee .track span.fill{color:var(--ink);-webkit-text-stroke:0}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat .num{font-family:var(--disp);font-weight:800;font-size:clamp(2.6rem,5vw,4rem);
+  background:linear-gradient(120deg,var(--c1),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .cap{color:var(--mut);font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-top:6px}
+@media(max-width:740px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:50px}
+.card{position:relative;border:1px solid var(--line);border-radius:20px;padding:26px;
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+  overflow:hidden;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(99,102,241,.55)}
+.card::after{content:"";position:absolute;inset:0;border-radius:20px;opacity:0;
+  background:radial-gradient(300px circle at var(--mx,50%) var(--my,0%),rgba(99,102,241,.22),transparent 60%);
+  transition:opacity .3s}
+.card:hover::after{opacity:1}
+.card .ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:16px;background:rgba(56,189,248,.1);border:1px solid var(--line)}
+.card h3{font-family:var(--disp);font-weight:600;font-size:1.05rem;margin-bottom:8px}
+.card p{color:var(--mut);font-size:.92rem}
+.card .n{position:absolute;top:18px;right:22px;font-family:var(--disp);font-weight:800;font-size:1rem;color:rgba(255,255,255,.12)}
+.span2{grid-column:span 2}
+@media(max-width:900px){.bento{grid-template-columns:repeat(2,1fr)}.span2{grid-column:span 2}}
+@media(max-width:560px){.bento{grid-template-columns:1fr}.span2{grid-column:span 1}}
+
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.step{text-align:center;padding:26px 14px;border-radius:18px;border:1px solid var(--line)}
+.step .s{font-family:var(--disp);font-weight:800;font-size:1.4rem;color:var(--c1)}
+.step .t{font-weight:600;margin-top:8px}
+.step .d{color:var(--mut);font-size:.85rem;margin-top:6px}
+@media(max-width:740px){.flow{grid-template-columns:repeat(2,1fr)}}
+
+.pricing{text-align:center;border:1px solid var(--line);border-radius:30px;padding:70px 30px;
+  background:radial-gradient(600px circle at 50% 0%,rgba(99,102,241,.16),transparent 60%)}
+.price-big{font-family:var(--disp);font-weight:800;font-size:clamp(3.5rem,9vw,6rem);margin:18px 0;
+  background:linear-gradient(120deg,var(--c1),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.incl{display:flex;gap:10px 26px;flex-wrap:wrap;justify-content:center;color:var(--mut);font-size:.95rem;margin:24px 0 34px}
+.incl span{display:flex;align-items:center;gap:8px}
+footer{text-align:center;padding:60px 28px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="grid-fade"></div>
+
+<nav>
+  <div class="logo"><span class="dot"></span> AUTOMATION&nbsp;VAULT</div>
+  <a class="btn" href="https://ochian95.gumroad.com/l/secves">Get the Vault</a>
+</nav>
+
+<div class="wrap">
+<header class="hero">
+  <div class="constel">
+    <svg id="cs" width="760" height="520" viewBox="0 0 760 520" fill="none">
+      <g stroke="url(#g)" stroke-width="1.4" opacity=".7">
+        <line class="ln" x1="120" y1="160" x2="330" y2="90"/>
+        <line class="ln" x1="330" y1="90" x2="560" y2="200"/>
+        <line class="ln" x1="120" y1="160" x2="240" y2="370"/>
+        <line class="ln" x1="240" y1="370" x2="500" y2="430"/>
+        <line class="ln" x1="560" y1="200" x2="500" y2="430"/>
+        <line class="ln" x1="330" y1="90" x2="240" y2="370"/>
+        <line class="ln" x1="560" y1="200" x2="640" y2="330"/>
+      </g>
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
+      <g fill="#a855f7">
+        <circle class="nd" cx="120" cy="160" r="6"/><circle class="nd" cx="330" cy="90" r="9"/>
+        <circle class="nd" cx="560" cy="200" r="6"/><circle class="nd" cx="240" cy="370" r="7"/>
+        <circle class="nd" cx="500" cy="430" r="8"/><circle class="nd" cx="640" cy="330" r="5"/>
+      </g>
+    </svg>
+  </div>
+  <span class="eyebrow">The complete system</span>
+  <h1>Build &amp; sell <span class="grad">AI automations</span> on autopilot</h1>
+  <p class="sub">56 documented, copy-paste prompts that take you from "a business has a boring manual task" to a paid client — without being a developer.</p>
+  <div class="cta-row">
+    <a class="btn" href="https://ochian95.gumroad.com/l/secves">Get instant access</a>
+    <a class="btn ghost" href="#inside">See what's inside</a>
+  </div>
+  <p class="price-tag">One-time &middot; <b>CHF&nbsp;31.49</b> &middot; instant download</p>
+  <div class="scrollcue">scroll</div>
+</header>
+
+<div class="marquee"><div class="track" id="mq">
+  <span>Find</span><span class="fill">&rarr;</span><span>Build</span><span class="fill">&rarr;</span><span>Sell</span><span class="fill">&rarr;</span><span>Scale</span><span class="fill">&rarr;</span>
+  <span>Find</span><span class="fill">&rarr;</span><span>Build</span><span class="fill">&rarr;</span><span>Sell</span><span class="fill">&rarr;</span><span>Scale</span><span class="fill">&rarr;</span>
+</div></div>
+
+<section class="container">
+  <div class="stats">
+    <div class="stat reveal"><div class="num" data-to="56">0</div><div class="cap">Prompts</div></div>
+    <div class="stat reveal"><div class="num" data-to="8">0</div><div class="cap">Modules</div></div>
+    <div class="stat reveal"><div class="num" data-to="14">0</div><div class="cap">Pages</div></div>
+    <div class="stat reveal"><div class="num" data-to="100" data-suf="%">0</div><div class="cap">No-code friendly</div></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="label reveal">001 / The problem</div>
+  <h2 class="reveal">The bottleneck isn't the tools.<br><span class="grad">It's not having a system.</span></h2>
+  <p class="lead reveal">You know AI automation is the opportunity of the decade — but you freeze at "which task is worth it", "how do I scope it", "what do I charge". The Vault is the repeatable system that answers all of it, in the exact words that produce results.</p>
+</section>
+
+<section class="container" id="inside">
+  <div class="label reveal">002 / What's inside</div>
+  <h2 class="reveal">Eight modules. One full lifecycle.</h2>
+  <div class="bento">
+    <div class="card reveal span2"><span class="n">01</span><div class="ic">🔍</div><h3>Find &amp; qualify</h3><p>Spot high-ROI tasks, score feasibility, qualify clients before you say yes.</p></div>
+    <div class="card reveal"><span class="n">02</span><div class="ic">🧩</div><h3>Design</h3><p>Turn a fuzzy task into a reliable workflow + data schema.</p></div>
+    <div class="card reveal"><span class="n">03</span><div class="ic">🛠️</div><h3>Build</h3><p>Build specs, n8n plans, production-grade system prompts.</p></div>
+    <div class="card reveal"><span class="n">04</span><div class="ic">✅</div><h3>QA</h3><p>Test checklists, edge cases, prompt-injection red-teaming.</p></div>
+    <div class="card reveal"><span class="n">05</span><div class="ic">💰</div><h3>Sell</h3><p>Cold outreach, proposals, value-based pricing, objections.</p></div>
+    <div class="card reveal"><span class="n">06</span><div class="ic">📦</div><h3>Deliver</h3><p>Onboarding, handoff guides, go-live checklists.</p></div>
+    <div class="card reveal span2"><span class="n">07/08</span><div class="ic">📈</div><h3>Scale &amp; run the business</h3><p>Retainers, productizing, case studies, raising prices, faceless content engine, weekly CEO review.</p></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="label reveal">003 / How it works</div>
+  <h2 class="reveal">From idea to income in four moves.</h2>
+  <div class="flow">
+    <div class="step reveal"><div class="s">01</div><div class="t">Find</div><div class="d">Pick a task worth automating &amp; price it.</div></div>
+    <div class="step reveal"><div class="s">02</div><div class="t">Build</div><div class="d">Design, spec &amp; ship a reliable automation.</div></div>
+    <div class="step reveal"><div class="s">03</div><div class="t">Sell</div><div class="d">Pitch, price &amp; close the client.</div></div>
+    <div class="step reveal"><div class="s">04</div><div class="t">Scale</div><div class="d">Turn one project into recurring income.</div></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="pricing reveal">
+    <span class="eyebrow">Get the Vault</span>
+    <div class="price-big">CHF&nbsp;31.49</div>
+    <p class="sub" style="margin-top:0">One-time payment. Instant download. Yours forever.</p>
+    <div class="incl">
+      <span>⚡ 56 prompts</span><span>📚 8 modules</span><span>🔌 No-code friendly</span><span>🤖 Model-agnostic</span>
+    </div>
+    <a class="btn" href="https://ochian95.gumroad.com/l/secves" style="font-size:16px;padding:16px 40px">I want this!</a>
+  </div>
+</section>
+</div>
+
+<footer>Built by an operator who runs these systems daily. Real automations, not theory.<br>&copy; Automation Vault</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+// starfield
+const cv=document.getElementById('stars'),cx=cv.getContext('2d');let W,H,st=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;st=Array.from({length:140},()=>({x:Math.random()*W,y:Math.random()*H,z:Math.random()*1.4+.2,s:Math.random()*1.6+.3}))}
+rs();addEventListener('resize',rs);
+(function loop(){cx.clearRect(0,0,W,H);for(const p of st){p.y+=p.z*.18;if(p.y>H){p.y=0;p.x=Math.random()*W}cx.globalAlpha=.4+p.z*.4;cx.fillStyle=p.z>1.1?'#a855f7':'#9fb4ff';cx.beginPath();cx.arc(p.x,p.y,p.s,0,7);cx.fill()}requestAnimationFrame(loop)})();
+
+window.addEventListener('load',()=>{
+  gsap.registerPlugin(ScrollTrigger);
+  // hero intro
+  gsap.from('.hero .eyebrow',{y:24,opacity:0,duration:.7,ease:'power3.out'});
+  gsap.from('h1',{y:40,opacity:0,duration:.9,delay:.1,ease:'power3.out'});
+  gsap.from('.hero .sub',{y:30,opacity:0,duration:.8,delay:.35,ease:'power3.out'});
+  gsap.from('.cta-row',{y:24,opacity:0,duration:.8,delay:.55,ease:'power3.out'});
+  gsap.from('.price-tag',{opacity:0,duration:.8,delay:.75});
+  gsap.set('#cs .ln',{strokeDasharray:700,strokeDashoffset:700,opacity:.7});
+  gsap.to('#cs .ln',{strokeDashoffset:0,duration:1.6,stagger:.12,delay:.3,ease:'power2.out'});
+  gsap.from('#cs .nd',{scale:0,transformOrigin:'center',duration:.6,stagger:.1,delay:.6,ease:'back.out(2)'});
+  gsap.to('#cs .nd',{y:'+=10',repeat:-1,yoyo:true,duration:3,stagger:.3,ease:'sine.inOut'});
+
+  // reveals
+  gsap.utils.toArray('.reveal').forEach(el=>{
+    gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',
+      scrollTrigger:{trigger:el,start:'top 86%'}});
+  });
+  // stat count-up
+  gsap.utils.toArray('.stat .num').forEach(el=>{
+    const to=+el.dataset.to,suf=el.dataset.suf||'';
+    ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:()=>{
+      gsap.to({v:0},{v:to,duration:1.6,ease:'power2.out',onUpdate:function(){el.textContent=Math.round(this.targets()[0].v)+suf}});
+    }});
+  });
+  // marquee
+  gsap.to('#mq',{xPercent:-50,repeat:-1,duration:18,ease:'none'});
+  // bento glow follows cursor
+  document.querySelectorAll('.card').forEach(c=>{
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')});
+  });
+});
+</script>
+</body>
+</html>
