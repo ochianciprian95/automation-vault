@@ -122,6 +122,11 @@ footer a{color:var(--c1);text-decoration:none;border-bottom:1px solid rgba(56,18
 .chip.show{opacity:1;transform:none}
 .chip:hover{border-color:var(--c1);background:rgba(56,189,248,.12)}
 .chip.cta{background:linear-gradient(120deg,var(--c1),var(--c3));color:#fff;border-color:transparent;box-shadow:var(--glow)}
+.guide-input{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line)}
+.guide-input input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 16px;color:var(--ink);font-family:var(--body);font-size:.9rem;outline:none}
+.guide-input input:focus{border-color:var(--c1)}
+.guide-input button{width:42px;flex:none;border:0;border-radius:50%;background:linear-gradient(120deg,var(--c1),var(--c3));color:#fff;cursor:pointer;font-size:14px;transition:transform .2s}
+.guide-input button:hover{transform:scale(1.08)}
 .guide-stage{border:1px solid var(--line);border-radius:22px;background:radial-gradient(420px circle at 60% 30%,rgba(99,102,241,.12),transparent 60%),rgba(9,11,22,.6);backdrop-filter:blur(8px);position:relative;overflow:hidden;min-height:430px;display:flex;align-items:center;justify-content:center}
 .stage-cap{position:absolute;bottom:16px;left:20px;right:20px;text-align:center;font-size:.86rem;color:#aeb6da;opacity:0}
 .gear{transform-box:fill-box;transform-origin:center}
@@ -153,6 +158,10 @@ footer a{color:var(--c1);text-decoration:none;border-bottom:1px solid rgba(56,18
       <div class="guide-head"><div class="guide-av">&#129302;</div><div><div class="nm">Vault Guide</div><div class="st">online</div></div></div>
       <div class="guide-feed" id="feed"></div>
       <div class="guide-choices" id="choices"></div>
+      <div class="guide-input">
+        <input id="gInput" type="text" placeholder="Ask me anything…" autocomplete="off" />
+        <button id="gSend" aria-label="Send">&#10148;</button>
+      </div>
     </div>
     <div class="guide-stage" id="stage">
       <svg id="bb" viewBox="0 0 520 400" width="100%" height="100%" style="max-height:430px">
@@ -414,8 +423,25 @@ async function runNode(key){const n=NODES[key];choicesEl.innerHTML='';
   (n.choices||[]).forEach((c,i)=>{const b=document.createElement('button');b.className='chip'+(c.cta?' cta':'');b.textContent=c.t;
     b.onclick=()=>{addBubble(c.t,'me');runNode(c.go);};choicesEl.appendChild(b);setTimeout(()=>b.classList.add('show'),140+i*90);});
 }
-let started=false;
-new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!started){started=true;runNode('start');}}),{threshold:.25}).observe(document.querySelector('.guide-panel'));
+const WORKER="https://vault-concierge.ochian-ciprian95.workers.dev";
+const input=document.getElementById('gInput'),sendBtn=document.getElementById('gSend');
+let history=[],sceneShown=false,sending=false;
+function chips(arr){choicesEl.innerHTML='';arr.forEach((t,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=t;b.onclick=()=>send(t);choicesEl.appendChild(b);setTimeout(()=>b.classList.add('show'),120+i*70);});}
+async function send(text){text=(text||'').trim();if(!text||sending)return;sending=true;
+  addBubble(text,'me');history.push({role:'user',content:text});choicesEl.innerHTML='';input.value='';
+  const t=addTyping();
+  if(!sceneShown){sceneShown=true;try{SCENE.blackbox();setTimeout(()=>{try{SCENE.open();}catch(e){}},1900);setTimeout(()=>{try{SCENE.result();}catch(e){}},3600);}catch(e){}}
+  try{
+    const r=await fetch(WORKER,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-12)})});
+    const d=await r.json();const reply=(d&&d.reply)||"Hmm, ask me again?";
+    t.remove();addBubble(reply,'ag');history.push({role:'assistant',content:reply});
+  }catch(e){t.remove();addBubble("Connection hiccup — give it a sec and try again.",'ag');}
+  feed.scrollTop=feed.scrollHeight;sending=false;
+}
+sendBtn.onclick=()=>send(input.value);
+input.addEventListener('keydown',e=>{if(e.key==='Enter')send(input.value);});
+addBubble("Hey 👋 I'm the Vault Guide. Ask me anything about this — or tap a question below.",'ag');
+chips(["What is this exactly?","I'm not technical — can I?","Show me a real example","How much, and the link?"]);
 })();
 </script>
 </body>
