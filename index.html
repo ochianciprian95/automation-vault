@@ -150,6 +150,30 @@ section{border-radius:24px;transition:box-shadow .3s}
   background:linear-gradient(120deg,var(--c1),var(--c3));border:0;border-radius:100px;padding:11px 18px;cursor:pointer;box-shadow:var(--glow)}
 #backGuide.show{opacity:1;pointer-events:auto;transform:none}
 #backGuide:hover{transform:translateY(-2px) scale(1.03)}
+/* finalization: compare / faq / trust band */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:46px}
+@media(max-width:680px){.vs{grid-template-columns:1fr}}
+.vs .col{border:1px solid var(--line);border-radius:20px;padding:28px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012))}
+.vs .col.bad{opacity:.82}
+.vs .col.good{border-color:rgba(99,102,241,.5);background:radial-gradient(420px circle at 50% 0%,rgba(99,102,241,.15),transparent 60%),rgba(255,255,255,.028)}
+.vs h3{font-family:var(--disp);font-weight:600;font-size:1.12rem;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.vs ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.vs li{display:flex;gap:11px;color:var(--mut);font-size:.95rem;line-height:1.5}
+.vs li b{color:var(--ink);font-weight:500}
+.vs .ico{flex:none;width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;margin-top:1px;font-weight:700}
+.vs .bad .ico{background:rgba(244,63,94,.14);color:#fb7185}
+.vs .good .ico{background:rgba(34,197,94,.14);color:#4ade80}
+.faq{margin-top:42px;display:flex;flex-direction:column;gap:12px}
+.faq details{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025);overflow:hidden;transition:border-color .25s}
+.faq details[open]{border-color:rgba(99,102,241,.4)}
+.faq summary{cursor:pointer;list-style:none;padding:19px 24px;font-weight:500;font-size:1.01rem;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--disp);font-size:1.4rem;line-height:1;color:var(--c1);transition:transform .3s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 24px 20px;color:var(--mut);font-size:.95rem;line-height:1.65}
+.faq .a b{color:var(--ink);font-weight:500}
+.free-link{display:inline-block;margin-top:18px;color:var(--c1);font-size:.92rem;text-decoration:none;border-bottom:1px solid rgba(56,189,248,.4)}
+.free-link:hover{border-bottom-color:var(--c1)}
 </style>
 </head>
 <body>
@@ -266,14 +290,53 @@ section{border-radius:24px;transition:box-shadow .3s}
   </div>
 </section>
 
+<section class="container" id="different">
+  <div class="label reveal">004 / Why it's different</div>
+  <h2 class="reveal">Most prompt packs are a junk drawer.<br><span class="grad">This one is a system.</span></h2>
+  <p class="lead reveal">A folder of 100+ random prompts leaves you guessing. The Vault is sequenced, documented and built around getting paid — so you always know the next move.</p>
+  <div class="vs">
+    <div class="col bad reveal">
+      <h3>&#128451;&#65039; The usual "100+ prompts"</h3>
+      <ul>
+        <li><span class="ico">&#10005;</span><span>A dump of disconnected one-liners — no order, no context.</span></li>
+        <li><span class="ico">&#10005;</span><span>Written to look impressive, not to <b>produce a deliverable</b>.</span></li>
+        <li><span class="ico">&#10005;</span><span>Stops at "here's a prompt" — nothing on scoping, pricing or closing.</span></li>
+        <li><span class="ico">&#10005;</span><span>You still don't know which task is actually worth money.</span></li>
+      </ul>
+    </div>
+    <div class="col good reveal">
+      <h3>&#9889; The Builder's Vault</h3>
+      <ul>
+        <li><span class="ico">&#10003;</span><span>56 prompts in <b>8 sequenced modules</b> — a full client lifecycle.</span></li>
+        <li><span class="ico">&#10003;</span><span>Each one produces a <b>real, sellable deliverable</b> when you paste it.</span></li>
+        <li><span class="ico">&#10003;</span><span>Covers find &rarr; build &rarr; <b>sell &rarr; price &rarr; deliver &rarr; scale</b>.</span></li>
+        <li><span class="ico">&#10003;</span><span>Documented, so you know <b>when and why</b> to run each play.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="container" id="how">
-  <div class="label reveal">004 / How it works</div>
+  <div class="label reveal">005 / How it works</div>
   <h2 class="reveal">From idea to income in four moves.</h2>
   <div class="flow">
     <div class="step reveal"><div class="s">01</div><div class="t">Find</div><div class="d">Pick a task worth automating &amp; price it.</div></div>
     <div class="step reveal"><div class="s">02</div><div class="t">Build</div><div class="d">Design, spec &amp; ship a reliable automation.</div></div>
     <div class="step reveal"><div class="s">03</div><div class="t">Sell</div><div class="d">Pitch, price &amp; close the client.</div></div>
     <div class="step reveal"><div class="s">04</div><div class="t">Scale</div><div class="d">Turn one project into recurring income.</div></div>
+  </div>
+</section>
+
+<section class="container" id="faq">
+  <div class="label reveal">006 / Questions, answered</div>
+  <h2 class="reveal">Everything you're about to ask.</h2>
+  <div class="faq reveal">
+    <details><summary>Do I need to be technical or know how to code?</summary><div class="a">No. Every prompt is copy-paste. You drop it into an AI like Claude, ChatGPT or Gemini and it produces the deliverable. If you can write an email, you can run these.</div></details>
+    <details><summary>Which AI tools does it work with?</summary><div class="a">It's <b>model-agnostic</b> — Claude, ChatGPT, Gemini, any capable chat model. No special software, plugins or extra subscriptions beyond the AI you already use.</div></details>
+    <details><summary>Isn't AI automation already saturated?</summary><div class="a">The tools are everywhere — the <b>system</b> isn't. Most people freeze at "which task is worth it, how do I scope it, what do I charge". That's exactly the gap the Vault closes. The system is the edge.</div></details>
+    <details><summary>It's cheap — is it actually any good?</summary><div class="a">The price is low on purpose: it's the front door, and I'd rather you start than hesitate. Inside is the same system used on real client work. Still unsure? Grab the free Starter Pack first and judge for yourself.</div></details>
+    <details><summary>What exactly do I get?</summary><div class="a">A 14-page documented PDF: 56 prompts across 8 modules (find, design, build, QA, sell, deliver, scale, run the business), each producing a concrete deliverable. Instant download, yours forever.</div></details>
+    <details><summary>How fast can I get a first result?</summary><div class="a">Today. Pick one boring, repetitive task a local business hates, run the "find &amp; qualify" and "price it" prompts, and you've got a scoped, priced offer in minutes. First client &asymp; $1,500 — that's 1 of 56 plays.</div></details>
   </div>
 </section>
 
@@ -284,6 +347,7 @@ section{border-radius:24px;transition:box-shadow .3s}
     <p class="sub" style="margin-top:0">One-time payment. Instant download. Yours forever.</p>
     <div class="incl"><span>&#9889; 56 prompts</span><span>&#128218; 8 modules</span><span>&#128268; No-code friendly</span><span>&#129302; Model-agnostic</span></div>
     <a class="btn" href="https://ochianciprian95.gumroad.com/l/secves" style="font-size:16px;padding:16px 40px">I want this!</a>
+    <div><a class="free-link" href="starter.html">Not ready? Start with the free pack &rarr;</a></div>
   </div>
 </section>
 </div>
@@ -459,7 +523,7 @@ function playSceneTo(key){const ti=ORDER.indexOf(key);if(ti<0)return;
   let delay=0;for(let i=sceneIdx+1;i<=ti;i++){const fn=SCENE[ORDER[i]];setTimeout(()=>{try{fn&&fn();}catch(e){}},delay);delay+=1550;}
   sceneIdx=ti;}
 function pulseStage(){if(!stageEl)return;stageEl.classList.add('stage-live');setTimeout(()=>stageEl.classList.remove('stage-live'),2600);}
-const SECMAP={demo:'demo',modules:'inside',pricing:'pricing',how:'how'};
+const SECMAP={demo:'demo',modules:'inside',pricing:'pricing',how:'how',different:'different',faq:'faq'};
 function flashSection(id){const el=document.getElementById(id);if(!el)return;
   scrollToEl(id);
   el.classList.remove('sec-flash');void el.offsetWidth;el.classList.add('sec-flash');
@@ -473,6 +537,8 @@ function inferAction(txt){const s=(txt||'').toLowerCase();
   if(/paste|prompt into|send it in|copy[- ]?paste/.test(s))return'blackbox';
   if(/deliverable|the result|client (only )?sees|finished/.test(s))return'result';
   if(/8 modules|eight modules|what'?s inside|\bmodules\b/.test(s))return'modules';
+  if(/junk drawer|another (prompt )?pack|not just a|the system is the edge|saturat/.test(s))return'different';
+  if(/frequently asked|good questions?|common questions?|\bfaq\b/.test(s))return'faq';
   if(/\bprice\b|chf|checkout|\bbuy\b|download|the link|gumroad/.test(s))return'pricing';
   if(/\bdemo\b|in action|real example|watch it work/.test(s))return'demo';
   return null;}
