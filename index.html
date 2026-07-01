@@ -9,8 +9,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="The AI Automation Builder's Vault">
 <meta property="og:description" content="56 prompts to build &amp; sell AI automations — find, build, sell, scale.">
-<meta property="og:image" content="https://ochianciprian95.github.io/automation-vault/cover-vault.png">
-<meta property="og:url" content="https://ochianciprian95.github.io/automation-vault/">
+<meta property="og:image" content="https://ochian95.github.io/automation-vault/cover-vault.png">
+<meta property="og:url" content="https://ochian95.github.io/automation-vault/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -174,6 +174,37 @@ section{border-radius:24px;transition:box-shadow .3s}
 .faq .a b{color:var(--ink);font-weight:500}
 .free-link{display:inline-block;margin-top:18px;color:var(--c1);font-size:.92rem;text-decoration:none;border-bottom:1px solid rgba(56,189,248,.4)}
 .free-link:hover{border-bottom-color:var(--c1)}
+/* ===== Living Page — presenza onnipresente in prima persona ===== */
+#presence{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:12px;
+  padding:9px 9px 9px 16px;border-radius:100px;background:rgba(9,11,22,.74);backdrop-filter:blur(16px);
+  border:1px solid var(--line);box-shadow:0 10px 40px rgba(0,0,0,.5),0 0 50px rgba(99,102,241,.18);width:min(92vw,520px)}
+#presence .orb{position:relative;width:30px;height:30px;flex:none;border-radius:50%;cursor:pointer;
+  background:radial-gradient(circle at 35% 30%,#cfeaff,#38bdf8 40%,#6366f1 72%,#a855f7);
+  box-shadow:0 0 18px rgba(99,102,241,.85);animation:orbFloat 3s ease-in-out infinite}
+#presence .orb::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid rgba(56,189,248,.55);animation:orbRing 2.4s ease-out infinite}
+#presence.think .orb{animation:orbFloat 3s ease-in-out infinite,orbPulse .85s ease-in-out infinite}
+@keyframes orbFloat{50%{transform:translateY(-3px)}}
+@keyframes orbRing{0%{transform:scale(.8);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+@keyframes orbPulse{50%{box-shadow:0 0 36px rgba(168,85,247,1)}}
+#presence input{flex:1;min-width:0;background:transparent;border:0;outline:none;color:var(--ink);font-family:var(--body);font-size:.95rem}
+#presence input::placeholder{color:var(--mut)}
+#presence .pbtn{flex:none;width:34px;height:34px;border:0;border-radius:50%;cursor:pointer;color:#04122b;
+  background:linear-gradient(120deg,var(--c1),var(--c3));font-size:14px;transition:transform .2s}
+#presence .pbtn:hover{transform:scale(1.08)}
+#presenceVoice{position:fixed;left:50%;bottom:76px;transform:translateX(-50%) translateY(8px);z-index:69;
+  width:min(92vw,520px);opacity:0;pointer-events:none;transition:opacity .4s,transform .4s;
+  background:rgba(9,11,22,.94);backdrop-filter:blur(14px);border:1px solid rgba(99,102,241,.42);
+  border-radius:18px;padding:13px 18px;color:#eaf0ff;font-size:.95rem;line-height:1.55;box-shadow:0 14px 50px rgba(0,0,0,.55)}
+#presenceVoice.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#presenceVoice .who{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c1);margin-bottom:6px}
+/* la pagina che parla DA UNA SEZIONE */
+.svoice{position:absolute;z-index:40;left:28px;top:8px;max-width:min(82%,440px);
+  background:linear-gradient(120deg,rgba(56,189,248,.18),rgba(168,85,247,.16));border:1px solid rgba(99,102,241,.55);
+  backdrop-filter:blur(8px);border-radius:16px;border-bottom-left-radius:4px;padding:11px 16px;color:#f1f5ff;font-size:.96rem;
+  box-shadow:0 10px 36px rgba(0,0,0,.45);opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s}
+.svoice.show{opacity:1;transform:none}
+.svoice b{color:#9fe0ff}
+@media(max-width:600px){.svoice{left:14px;right:14px;max-width:none}}
 </style>
 </head>
 <body>
@@ -181,7 +212,7 @@ section{border-radius:24px;transition:box-shadow .3s}
 
 <nav>
   <div class="logo"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="display:block"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset=".55" stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs><path d="M32 4 55 17 55 47 32 60 9 47 9 17Z" fill="none" stroke="url(#lg)" stroke-width="4" stroke-linejoin="round"/><path d="M35 16 22 37 31 37 27 49 43 27 34 27Z" fill="url(#lg)"/><circle cx="32" cy="4" r="3.2" fill="#38bdf8"/></svg> AUTOMATION&nbsp;VAULT</div>
-  <a class="btn" id="navCta" href="https://ochianciprian95.gumroad.com/l/secves">Get the Vault</a>
+  <a class="btn" id="navCta" href="https://ochian95.gumroad.com/l/secves">Get the Vault</a>
 </nav>
 
 <div class="wrap">
@@ -192,7 +223,7 @@ section{border-radius:24px;transition:box-shadow .3s}
   </div>
   <div class="guide-grid">
     <div class="guide-panel">
-      <div class="guide-head"><div class="guide-av">&#129302;</div><div><div class="nm">Vault Guide</div><div class="st">online</div></div></div>
+      <div class="guide-head"><div class="guide-av">&#9889;</div><div><div class="nm">Vault — Live Agent</div><div class="st">online · powered by the Vault's own stack</div></div></div>
       <div class="guide-feed" id="feed"></div>
       <div class="guide-choices" id="choices"></div>
       <div class="guide-input">
@@ -244,10 +275,10 @@ section{border-radius:24px;transition:box-shadow .3s}
 
 <section class="container">
   <div class="stats">
-    <div class="stat reveal"><div class="num" data-to="56">0</div><div class="cap">Prompts</div></div>
-    <div class="stat reveal"><div class="num" data-to="8">0</div><div class="cap">Modules</div></div>
-    <div class="stat reveal"><div class="num" data-to="14">0</div><div class="cap">Pages</div></div>
-    <div class="stat reveal"><div class="num" data-to="100" data-suf="%">0</div><div class="cap">No-code friendly</div></div>
+    <div class="stat reveal"><div class="num" data-to="56">0</div><div class="cap">Copy-paste prompts</div></div>
+    <div class="stat reveal"><div class="num" data-to="8">0</div><div class="cap">Business modules</div></div>
+    <div class="stat reveal"><div class="num" data-to="1500" data-pre="$">0</div><div class="cap">Avg. first client</div></div>
+    <div class="stat reveal"><div class="num" data-to="39" data-pre="$">0</div><div class="cap">One-time · yours forever</div></div>
   </div>
 </section>
 
@@ -340,21 +371,62 @@ section{border-radius:24px;transition:box-shadow .3s}
   </div>
 </section>
 
+<section class="container" id="proof">
+  <div class="label reveal">007 / Real results</div>
+  <h2 class="reveal">What one prompt unlocks.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px" class="reveal">
+    <div class="card" style="border-color:rgba(56,189,248,.3)">
+      <div style="font-family:var(--disp);font-size:2rem;font-weight:800;background:linear-gradient(120deg,var(--c1),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px">$1,800</div>
+      <div style="font-weight:600;margin-bottom:8px;font-size:.95rem">Dental clinic — appointment automation</div>
+      <p style="color:var(--mut);font-size:.88rem;line-height:1.55">9 hrs/week of no-show chasing → automated reminders + re-booking. Scoped, priced, and pitched using 3 prompts from Module 1 and 5.</p>
+    </div>
+    <div class="card" style="border-color:rgba(99,102,241,.4)">
+      <div style="font-family:var(--disp);font-size:2rem;font-weight:800;background:linear-gradient(120deg,var(--c1),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px">$2,400</div>
+      <div style="font-weight:600;margin-bottom:8px;font-size:.95rem">Real estate agency — lead qualification</div>
+      <p style="color:var(--mut);font-size:.88rem;line-height:1.55">Form submission → AI scores lead → personalised email + CRM log. Built in an afternoon with Module 3's n8n plan prompt.</p>
+    </div>
+    <div class="card" style="border-color:rgba(168,85,247,.3)">
+      <div style="font-family:var(--disp);font-size:2rem;font-weight:800;background:linear-gradient(120deg,var(--c1),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px">$200/mo</div>
+      <div style="font-weight:600;margin-bottom:8px;font-size:.95rem">E-commerce brand — inventory alerts</div>
+      <p style="color:var(--mut);font-size:.88rem;line-height:1.55">Low-stock trigger → Slack alert + reorder draft. Sold as a monthly retainer using Module 7's retainer packaging prompt.</p>
+    </div>
+  </div>
+  <p class="lead reveal" style="margin-top:28px;font-size:.95rem">These are illustrative examples of the kinds of projects the Vault's prompts are built to scope, price, and close. Your results depend on your effort and market.</p>
+</section>
+
 <section class="container" id="pricing">
   <div class="pricing reveal">
     <span class="eyebrow">Get the Vault</span>
-    <div class="price-big">CHF&nbsp;31.49</div>
-    <p class="sub" style="margin-top:0">One-time payment. Instant download. Yours forever.</p>
-    <div class="incl"><span>&#9889; 56 prompts</span><span>&#128218; 8 modules</span><span>&#128268; No-code friendly</span><span>&#129302; Model-agnostic</span></div>
-    <a class="btn" href="https://ochianciprian95.gumroad.com/l/secves" style="font-size:16px;padding:16px 40px">I want this!</a>
-    <div><a class="free-link" href="starter.html">Not ready? Start with the free pack &rarr;</a></div>
+    <div class="price-big">$39</div>
+    <p class="sub" style="margin-top:0">One-time. Instant download. Yours forever. No subscription.</p>
+    <div class="incl"><span>&#9889; 56 prompts</span><span>&#128218; 8 modules</span><span>&#128176; Avg. first client $1,500</span><span>&#129302; Model-agnostic</span></div>
+    <a class="btn" href="https://ochian95.gumroad.com/l/secves" style="font-size:18px;padding:18px 48px;letter-spacing:.01em">Get instant access — $39</a>
+    <p style="color:var(--mut);font-size:.85rem;margin-top:14px">Secure checkout via Gumroad · PDF delivered instantly</p>
+    <div><a class="free-link" href="https://ochian95.gumroad.com/l/gdcyi">Not sure yet? Grab the free 10-prompt Starter Pack first &rarr;</a></div>
   </div>
 </section>
 </div>
 
 <button id="backGuide">&uarr; Back to the guide</button>
 
-<footer>Not ready yet? <a href="starter.html">Grab the free Starter Pack &rarr;</a><br><br>Built by an operator who runs these systems daily. Real automations, not theory.<br>&copy; Automation Vault</footer>
+<div id="presenceVoice"><div class="who">This page</div><div id="pvText"></div></div>
+<div id="presence">
+  <div class="orb" id="orb" title="I'm this page"></div>
+  <input id="pInput" type="text" placeholder="Ask the Vault anything…" autocomplete="off" aria-label="Ask the Vault" />
+  <button class="pbtn" id="pSend" aria-label="Send">&#10148;</button>
+</div>
+
+<footer>
+  <div style="max-width:560px;margin:0 auto">
+    <div style="font-family:var(--disp);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:12px">The AI Automation Builder's Vault</div>
+    <p style="margin-bottom:20px">56 prompts · 8 modules · $39 one-time · instant download</p>
+    <div style="display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:28px">
+      <a href="https://ochian95.gumroad.com/l/secves" style="color:var(--c1);text-decoration:none;border-bottom:1px solid rgba(56,189,248,.4)">Get the Vault — $39</a>
+      <a href="https://ochian95.gumroad.com/l/gdcyi" style="color:var(--mut);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15)">Free Starter Pack (10 prompts)</a>
+    </div>
+    <p style="font-size:12px;opacity:.5">Built by an operator who runs these systems on real clients. No theory, no hype.<br>&copy; 2026 Automation Vault · Sold via Gumroad (Merchant of Record)</p>
+  </div>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -413,8 +485,8 @@ window.addEventListener('load',()=>{
   gsap.from('.price-tag',{opacity:0,duration:.8,delay:.8});
   gsap.from('.scrollcue',{opacity:0,duration:1,delay:1});
   gsap.utils.toArray('.reveal').forEach(el=>{gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});});
-  gsap.utils.toArray('.stat .num').forEach(el=>{const to=+el.dataset.to,suf=el.dataset.suf||'';
-    ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>{gsap.to({v:0},{v:to,duration:1.7,ease:'power2.out',onUpdate:function(){el.textContent=Math.round(this.targets()[0].v)+suf;}});}});});
+  gsap.utils.toArray('.stat .num').forEach(el=>{const to=+el.dataset.to,suf=el.dataset.suf||'',pre=el.dataset.pre||'';
+    ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>{gsap.to({v:0},{v:to,duration:1.8,ease:'power2.out',onUpdate:function(){const v=Math.round(this.targets()[0].v);el.textContent=pre+(v>=1000?(v/1000).toFixed(v%1000===0?0:1)+'k':v)+suf;}});}});});
   gsap.to('#mq',{xPercent:-50,repeat:-1,duration:18,ease:'none'});
   document.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');}));
   // magnetic CTA
@@ -497,7 +569,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
 async function runNode(key){const n=NODES[key];choicesEl.innerHTML='';
   for(const m of n.msgs){const t=addTyping();await wait(Math.min(1100,460+m.length*13));t.remove();addBubble(m,'ag');await wait(200);}
   if(n.scene&&SCENE[n.scene])SCENE[n.scene]();
-  if(n.action==='buy'){await wait(650);location.href='https://ochianciprian95.gumroad.com/l/secves';return;}
+  if(n.action==='buy'){await wait(650);location.href='https://ochian95.gumroad.com/l/secves';return;}
   if(n.action==='scroll'){await wait(400);scrollToEl('demo');return;}
   (n.choices||[]).forEach((c,i)=>{const b=document.createElement('button');b.className='chip'+(c.cta?' cta':'');b.textContent=c.t;
     b.onclick=()=>{addBubble(c.t,'me');runNode(c.go);};choicesEl.appendChild(b);setTimeout(()=>b.classList.add('show'),140+i*90);});
@@ -542,29 +614,57 @@ function inferAction(txt){const s=(txt||'').toLowerCase();
   if(/\bprice\b|chf|checkout|\bbuy\b|download|the link|gumroad/.test(s))return'pricing';
   if(/\bdemo\b|in action|real example|watch it work/.test(s))return'demo';
   return null;}
+// ---- presenza onnipresente (orb + voce della pagina + parlato dalle sezioni) ----
+const orb=document.getElementById('orb'),presence=document.getElementById('presence'),
+      pInput=document.getElementById('pInput'),pSend=document.getElementById('pSend'),
+      pv=document.getElementById('presenceVoice'),pvText=document.getElementById('pvText');
+function orbThink(on){if(presence)presence.classList.toggle('think',!!on);}
+function presenceSay(text){if(!pv||!text)return;pvText.textContent=text;pv.classList.add('show');
+  clearTimeout(presenceSay._t);presenceSay._t=setTimeout(()=>pv.classList.remove('show'),10000);}
+function sectionVoice(id,text){const el=document.getElementById(id);if(!el||!text)return;
+  el.querySelectorAll('.svoice').forEach(n=>n.remove());
+  const b=document.createElement('div');b.className='svoice';b.textContent=text;el.appendChild(b);
+  requestAnimationFrame(()=>b.classList.add('show'));
+  setTimeout(()=>{b.classList.remove('show');setTimeout(()=>{try{b.remove();}catch(e){}},600);},8000);}
+if(orb)orb.addEventListener('click',()=>{pInput&&pInput.focus();});
 if(backBtn&&guideHero){
   backBtn.onclick=()=>{smoothScrollTo(0);backBtn.classList.remove('show');setTimeout(()=>input&&input.focus(),500);};
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)backBtn.classList.remove('show');}),{threshold:.35}).observe(guideHero);
 }
 
 async function send(text){text=(text||'').trim();if(!text||sending)return;sending=true;
-  addBubble(text,'me');history.push({role:'user',content:text});choicesEl.innerHTML='';input.value='';
+  addBubble(text,'me');history.push({role:'user',content:text});choicesEl.innerHTML='';
+  if(input)input.value='';if(pInput)pInput.value='';
+  orbThink(true);
   const t=addTyping();
   try{
     const r=await fetch(WORKER,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-12)})});
     const d=await r.json();const reply=(d&&d.reply)||"Hmm, ask me again?";
     t.remove();addBubble(reply,'ag');history.push({role:'assistant',content:reply});
+    orbThink(false);
+    presenceSay(reply); // la pagina risponde vicino all'orb, ovunque tu sia
     let act=(d&&d.action)||inferAction(reply);
-    if(!act&&!firstPiloted)act='blackbox'; // gentle default: bring the stage to life on first reply
+    const say=(d&&d.say)||null;
+    if(!act&&!firstPiloted)act='blackbox'; // gentle default: bring the page to life on first reply
     firstPiloted=true;
-    if(act)setTimeout(()=>pilot(act),450);
-  }catch(e){t.remove();addBubble("Connection hiccup — give it a sec and try again.",'ag');}
+    if(act){
+      setTimeout(()=>pilot(act),450);
+      // se l'agente "parla da" una sezione, mostra la sua voce DENTRO quella sezione (dopo lo scroll)
+      if(say&&SECMAP[act])setTimeout(()=>sectionVoice(SECMAP[act],say),1250);
+    }
+  }catch(e){t.remove();orbThink(false);addBubble("Connection hiccup — give it a sec and try again.",'ag');}
   feed.scrollTop=feed.scrollHeight;sending=false;
 }
 sendBtn.onclick=()=>send(input.value);
 input.addEventListener('keydown',e=>{if(e.key==='Enter')send(input.value);});
-addBubble("Hey 👋 I'm the Vault Guide. Ask me anything about this — or tap a question below.",'ag');
-chips(["What is this exactly?","I'm not technical — can I?","Show me a real example","How much, and the link?"]);
+// dock di presenza onnipresente — parlami da QUALSIASI sezione
+if(pSend)pSend.onclick=()=>send(pInput.value);
+if(pInput)pInput.addEventListener('keydown',e=>{if(e.key==='Enter')send(pInput.value);});
+addBubble("I'm the Vault — not a chatbot, a live agent built with the exact stack you're about to buy. 56 prompts. One system. Let me show you what it actually does.",'ag');
+setTimeout(()=>{
+  addBubble("Pick where you want to start 👇",'ag');
+  chips(["Show me a real client example","I'm not technical — can I do this?","What's inside the 8 modules?","What's the price and the link?"]);
+},900);
 })();
 </script>
 </body>
